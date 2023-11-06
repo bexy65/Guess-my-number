@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header-section">
+        <h2>Guess my number!</h2>
+        <h2>
+          Difficulty level: <span class="difficultyLevel">Easy/Hard</span>
+        </h2>
+        <button id="resetGame">Reset</button>
+      </div>
+      <div class="game-container">
+        <div class="input-section">
+          <div class="input">
+            <input type="text" class="difficulty" />
+            <button id="setDifficulty">Set Difficulty</button>
+          </div>
+          <div class="input">
+            <input type="text" class="guess" />
+            <button id="guessButton">Guess</button>
+          </div>
+        </div>
+        <div class="secret-section">
+          <div class="secret-number">?</div>
+        </div>
+        <div class="score-section">
+          <div class="message">Let`s Play!</div>
+          <div class="scorePoints">
+            My Score:<span id="scorePoints">0</span>
+          </div>
+          <div class="highScore">HighScore:<span id="highScore">0</span></div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
