@@ -17,6 +17,19 @@ button {
   cursor: pointer;
 }
 
+#closeModal {
+  background-color: red;
+  color: black;
+  font-size: 32px;
+  margin-left: 10px;
+}
+#closeModal:hover {
+  background-color: rgb(68, 39, 39);
+  color: rgb(255, 255, 255);
+  font-size: 36px;
+  transition: 400ms;
+}
+
 .main-container {
   background-color: rgb(246, 205, 205);
   border: 5px solid;
@@ -26,6 +39,10 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.close-display {
+  display: none;
 }
 
 .header-section {

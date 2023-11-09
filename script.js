@@ -2,6 +2,8 @@ const guessButton = document.querySelector('#guessButton');
 const setDiffButton = document.querySelector('#setDifficulty');
 const resetButton = document.querySelector('#resetGame');
 guessButton.disabled = true;
+const showGameButton = document.querySelector('#showGame');
+const closeModalButton = document.querySelector('#closeModal');
 
 let secretNumber;
 let score;
@@ -17,6 +19,18 @@ let alerts = {
   default: 'Let`s Play!',
 };
 
+closeModalButton.addEventListener('click', function () {
+  document.querySelector('.main-container').classList.add('close-display');
+});
+
+showGameButton.addEventListener('click', function () {
+  document.querySelector('.main-container').classList.contains('close-display')
+    ? document
+        .querySelector('.main-container')
+        .classList.remove('close-display')
+    : document.querySelector('.main-container').classList.add('close-display');
+});
+
 resetButton.addEventListener('click', function () {
   //alternative
   // location.reload();
@@ -27,6 +41,7 @@ resetButton.addEventListener('click', function () {
   let highScoreSelector = document.querySelector('#highScore');
   let scoreMessageSelector = document.querySelector('#scorePoints');
 
+  guessButton.disabled = true;
   setDiff.value = '';
   guess.value = '';
   message.textContent = alerts.default;
@@ -79,6 +94,7 @@ guessButton.addEventListener('click', function () {
       message.textContent = alerts.win;
       highScore = score;
       highScore === score ? highScore : score;
+      localStorage.setItem('highestScore', 'highScore');
       highScoreSelector.textContent = highScore;
     } else if (guess < secretNumber) {
       message.textContent = alerts.low;
