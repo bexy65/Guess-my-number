@@ -96,8 +96,6 @@ guessButton.addEventListener('click', function () {
       message.textContent = alerts.win;
       highScore = score;
       highScore === score ? highScore : score;
-      localStorage.setItem('highestScore', 'highScore');
-      highScoreSelector.textContent = highScore;
     } else if (guess < secretNumber) {
       message.textContent = alerts.low;
       score--;

@@ -5,6 +5,7 @@
 body {
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
+  background: rgb(180, 205, 255);
 }
 
 button {
@@ -17,22 +18,9 @@ button {
   cursor: pointer;
 }
 
-#closeModal {
-  background-color: red;
-  color: black;
-  font-size: 32px;
-  margin-left: 10px;
-}
-#closeModal:hover {
-  background-color: rgb(68, 39, 39);
-  color: rgb(255, 255, 255);
-  font-size: 36px;
-  transition: 400ms;
-}
-
 .main-container {
   background-color: rgb(246, 205, 205);
-  border: 5px solid;
+  border: 3px solid rgba(0, 0, 0, 0.66);
   margin: auto;
   width: 70%;
   padding: 10px;
@@ -41,8 +29,21 @@ button {
   justify-content: space-around;
 }
 
-.close-display {
-  display: none;
+.game-button-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+}
+
+.game-button-container button {
+  width: 200px;
+  margin: 5px;
+  background-color: rgb(180, 205, 255);
+  border-radius: 12px;
 }
 
 .header-section {
@@ -153,4 +154,20 @@ button {
 
 .difficultyLevel {
   font-size: 32px;
+}
+
+.close-display {
+  display: none;
+}
+
+#closeModal {
+  background-color: red;
+  color: black;
+  font-size: 32px;
+  margin-left: 10px;
+}
+#closeModal:hover {
+  background-color: rgb(68, 39, 39);
+  color: rgb(255, 255, 255);
+  transition: 400ms;
 }
