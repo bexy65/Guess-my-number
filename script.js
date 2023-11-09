@@ -5,6 +5,18 @@ guessButton.disabled = true;
 const showGameButton = document.querySelector('#showGame');
 const closeModalButton = document.querySelector('#closeModal');
 
+//Multiplying buttons using logic instead of hardcoding on HTML
+const gameButtonContainer = document.querySelector('.game-button-container');
+const secretGameButton = document.createElement('button');
+
+const string = 'Secret Game';
+
+for (let i = 0; i < 5; i++) {
+  secretGameButton.textContent = string;
+  secretGameButton.setAttribute('id', 'showGame');
+  gameButtonContainer.appendChild(secretGameButton);
+}
+
 let secretNumber;
 let score;
 let highScore;
