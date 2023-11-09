@@ -40,12 +40,14 @@ resetButton.addEventListener('click', function () {
   let secretNumberSelector = document.querySelector('.secret-number');
   let highScoreSelector = document.querySelector('#highScore');
   let scoreMessageSelector = document.querySelector('#scorePoints');
+  let secretSection = document.querySelector('.secret-section');
 
   guessButton.disabled = true;
   setDiff.value = '';
   guess.value = '';
   message.textContent = alerts.default;
   secretNumberSelector.textContent = '?';
+  secretSection.style.backgroundColor = 'rgb(172, 126, 215)';
   highScoreSelector.textContent = 0;
   scoreMessageSelector.textContent = 0;
 });
