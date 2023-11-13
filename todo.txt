@@ -2,3 +2,5 @@
 2/Other games
 3/Logic to render on html instaed of hardcoding
 4/Refactoring to make it KISS/DRY
+5/Use unique ID`s for buttons 
+6/ use only classes for css
