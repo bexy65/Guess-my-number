@@ -40,7 +40,7 @@ function reset() {
   message.textContent = alerts.default;
   secretNumberSelector.textContent = '?';
   secretSection.style.backgroundColor = 'rgb(172, 126, 215)';
-  highScoreSelector.textContent = 0;
+  // highScoreSelector.textContent = 0;
   scoreMessageSelector.textContent = 0;
 }
 
@@ -65,6 +65,7 @@ setDiffButton.addEventListener('click', function () {
   } else {
     secretNumber = Math.trunc(Math.random() * setDiff) + 1;
     score = setDiff;
+    console.log(secretNumber);
     scoreMessageSelector.textContent = score;
 
     guessButton.disabled = false;
@@ -89,7 +90,7 @@ guessButton.addEventListener('click', function () {
       secretSection.style.backgroundColor = 'Yellow';
       message.textContent = alerts.win;
       highScore = score;
-      highScore === score ? highScore : score;
+      highScore > score ? highScore : score;
       highScoreSelector.textContent = highScore;
     } else if (guess < secretNumber) {
       message.textContent = alerts.low;
