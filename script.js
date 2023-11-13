@@ -5,6 +5,7 @@ const resetButton = document.querySelector('#resetGame');
 guessButton.disabled = true;
 const showGameButton = document.querySelector('#showGame');
 const closeModalButton = document.querySelector('#closeModal');
+// const bodyEl = document.querySelector('.body');
 
 //Don`t know why can`t use as global selector!!
 // let setDiff = Number(document.querySelector('.difficulty'));
@@ -49,10 +50,12 @@ function reset() {
 
 closeModalButton.addEventListener('click', function () {
   mainContainer.classList.toggle('close-display');
+  // bodyEl.classList.remove('blur-background');
 });
 
 showGameButton.addEventListener('click', function () {
   mainContainer.classList.toggle('close-display');
+  // bodyEl.classList.add('blur-background');
 });
 
 resetButton.addEventListener('click', reset);

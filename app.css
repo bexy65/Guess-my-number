@@ -17,10 +17,17 @@ button {
   border-radius: 10px;
   cursor: pointer;
 }
+/*
+.blur-background {
+  filter: blur(5px);  Adjust the blur intensity as needed 
+  pointer-events: none; Allow interaction with underlying elements 
+} 
+*/
 
 .main-container {
-  background-color: rgb(246, 205, 205);
-  border: 3px solid rgba(0, 0, 0, 0.66);
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgba(0, 0, 0, 0.66);
+  border-radius: 8px;
   margin: auto;
   width: 70%;
   padding: 10px;
