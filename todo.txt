@@ -1,7 +1,7 @@
-!!Important steps in every program i make
+!!Important steps should be done in every program i develop
 1/Divide big problem to mini problems.
 2/Other games
 3/Logic to render on html instaed of hardcoding
 4/!!KISS/DRY
-5/Use unique ID`s for buttons 
-6/Use only classes for css
+5/Use unique ID`s for logic
+6/Use only classes for classes

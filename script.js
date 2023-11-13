@@ -15,6 +15,8 @@ const highScoreSelector = document.querySelector('#highScore');
 const scoreMessageSelector = document.querySelector('#scorePoints');
 const secretSection = document.querySelector('.secret-section');
 const diffLevelSelector = document.querySelector('.difficultyLevel');
+const guess = document.querySelector('.guess');
+guess.disabled = true;
 
 let secretNumber;
 let score;
@@ -37,6 +39,7 @@ function reset() {
   guessButton.disabled = true;
   setDiff.value = '';
   guess.value = '';
+  guess.disabled = true;
   message.textContent = alerts.default;
   secretNumberSelector.textContent = '?';
   secretSection.style.backgroundColor = 'rgb(172, 126, 215)';
@@ -52,9 +55,7 @@ showGameButton.addEventListener('click', function () {
   mainContainer.classList.toggle('close-display');
 });
 
-resetButton.addEventListener('click', function () {
-  reset();
-});
+resetButton.addEventListener('click', reset);
 
 setDiffButton.addEventListener('click', function () {
   let setDiff = Number(document.querySelector('.difficulty').value);
@@ -67,7 +68,7 @@ setDiffButton.addEventListener('click', function () {
     score = setDiff;
     console.log(secretNumber);
     scoreMessageSelector.textContent = score;
-
+    guess.disabled = false;
     guessButton.disabled = false;
     score > 20
       ? (message.textContent = alerts.wrongDifficulty)
