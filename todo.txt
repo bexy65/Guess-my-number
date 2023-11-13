@@ -1,6 +1,7 @@
-1/DRY
+!!Important steps in every program i make
+1/Divide big problem to mini problems.
 2/Other games
 3/Logic to render on html instaed of hardcoding
-4/Refactoring to make it KISS/DRY
+4/!!KISS/DRY
 5/Use unique ID`s for buttons 
-6/ use only classes for css
+6/Use only classes for css

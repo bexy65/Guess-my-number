@@ -1,3 +1,4 @@
+const mainContainer = document.querySelector('.main-container');
 const guessButton = document.querySelector('#guessButton');
 const setDiffButton = document.querySelector('#setDifficulty');
 const resetButton = document.querySelector('#resetGame');
@@ -5,17 +6,15 @@ guessButton.disabled = true;
 const showGameButton = document.querySelector('#showGame');
 const closeModalButton = document.querySelector('#closeModal');
 
-//Multiplying buttons using logic instead of hardcoding on HTML
-const gameButtonContainer = document.querySelector('.game-button-container');
-const secretGameButton = document.createElement('button');
+//Don`t know why can`t use as global selector!!
+// let setDiff = Number(document.querySelector('.difficulty'));
 
-const string = 'Secret Game';
-
-for (let i = 0; i < 5; i++) {
-  secretGameButton.textContent = string;
-  secretGameButton.setAttribute('id', 'showGame');
-  gameButtonContainer.appendChild(secretGameButton);
-}
+const message = document.querySelector('.message');
+const secretNumberSelector = document.querySelector('.secret-number');
+const highScoreSelector = document.querySelector('#highScore');
+const scoreMessageSelector = document.querySelector('#scorePoints');
+const secretSection = document.querySelector('.secret-section');
+const diffLevelSelector = document.querySelector('.difficultyLevel');
 
 let secretNumber;
 let score;
@@ -31,28 +30,9 @@ let alerts = {
   default: 'Let`s Play!',
 };
 
-closeModalButton.addEventListener('click', function () {
-  document.querySelector('.main-container').classList.add('close-display');
-});
-
-showGameButton.addEventListener('click', function () {
-  document.querySelector('.main-container').classList.contains('close-display')
-    ? document
-        .querySelector('.main-container')
-        .classList.remove('close-display')
-    : document.querySelector('.main-container').classList.add('close-display');
-});
-
-resetButton.addEventListener('click', function () {
-  //alternative
-  // location.reload();
+function reset() {
   let setDiff = document.querySelector('.difficulty');
-  let guess = document.querySelector('.guess');
-  let message = document.querySelector('.message');
-  let secretNumberSelector = document.querySelector('.secret-number');
-  let highScoreSelector = document.querySelector('#highScore');
-  let scoreMessageSelector = document.querySelector('#scorePoints');
-  let secretSection = document.querySelector('.secret-section');
+  const guess = document.querySelector('.guess');
 
   guessButton.disabled = true;
   setDiff.value = '';
@@ -62,24 +42,31 @@ resetButton.addEventListener('click', function () {
   secretSection.style.backgroundColor = 'rgb(172, 126, 215)';
   highScoreSelector.textContent = 0;
   scoreMessageSelector.textContent = 0;
+}
+
+closeModalButton.addEventListener('click', function () {
+  mainContainer.classList.toggle('close-display');
+});
+
+showGameButton.addEventListener('click', function () {
+  mainContainer.classList.toggle('close-display');
+});
+
+resetButton.addEventListener('click', function () {
+  reset();
 });
 
 setDiffButton.addEventListener('click', function () {
   let setDiff = Number(document.querySelector('.difficulty').value);
-  let diffLevelSelector = document.querySelector('.difficultyLevel');
-  let message = document.querySelector('.message');
 
   if (!setDiff || setDiff > 21) {
     message.textContent = alerts.wrongDifficulty;
     score = 0;
   } else {
-    let scoreMessageSelector = document.querySelector('#scorePoints');
     secretNumber = Math.trunc(Math.random() * setDiff) + 1;
     score = setDiff;
     scoreMessageSelector.textContent = score;
-    console.log(score);
 
-    console.log(secretNumber);
     guessButton.disabled = false;
     score > 20
       ? (message.textContent = alerts.wrongDifficulty)
@@ -92,22 +79,18 @@ setDiffButton.addEventListener('click', function () {
 
 guessButton.addEventListener('click', function () {
   let guess = Number(document.querySelector('.guess').value);
-  let message = document.querySelector('.message');
-  let secretNumberSelector = document.querySelector('.secret-number');
-  let highScoreSelector = document.querySelector('#highScore');
-  let secretNumberContainer = document.querySelector('.secret-section');
 
-  let scoreMessageSelector = document.querySelector('#scorePoints');
   scoreMessageSelector.textContent = score;
   if (score > 0) {
     if (!guess) {
       message.textContent = alerts.error;
     } else if (guess === secretNumber) {
       secretNumberSelector.textContent = secretNumber;
-      secretNumberContainer.style.backgroundColor = 'Yellow';
+      secretSection.style.backgroundColor = 'Yellow';
       message.textContent = alerts.win;
       highScore = score;
       highScore === score ? highScore : score;
+      highScoreSelector.textContent = highScore;
     } else if (guess < secretNumber) {
       message.textContent = alerts.low;
       score--;
@@ -117,6 +100,6 @@ guessButton.addEventListener('click', function () {
     }
   } else {
     message.textContent = alerts.lost;
-    secretNumberContainer.style.backgroundColor = 'Yellow';
+    secretSection.style.backgroundColor = 'Red';
   }
 });
